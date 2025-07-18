@@ -1,7 +1,9 @@
 import os
 from rank_bm25 import BM25Okapi
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 corpus_path = os.path.join(BASE_DIR, "..", "quran_cleaned_corpus.txt")
+corpus_path = os.path.abspath(corpus_path)
 
 class BM25Search:
     def __init__(self, file_path="app/quran_cleaned_corpus.txt"):
