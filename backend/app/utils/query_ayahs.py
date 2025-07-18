@@ -62,6 +62,7 @@ def map_bm25_hits_to_ayahs(keyword_hits: list[dict]) -> list[AyahResult]:
     """Map BM25 keyword hits to actual AyahResult objects using Quran metadata with preprocessing match."""
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     metadata_path = os.path.join(BASE_DIR, "..", "quran_metadata.json")
+    metadata_path = os.path.abspath(metadata_path)
 
     with open(metadata_path, "r", encoding="utf-8") as f:
         quran_metadata = json.load(f)
