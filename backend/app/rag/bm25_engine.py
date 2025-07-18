@@ -6,7 +6,7 @@ corpus_path = os.path.join(BASE_DIR, "..", "quran_cleaned_corpus.txt")
 corpus_path = os.path.abspath(corpus_path)
 
 class BM25Search:
-    def __init__(self, file_path="app/quran_cleaned_corpus.txt"):
+    def __init__(self, file_path="quran_cleaned_corpus.txt"):
         with open(file_path, "r", encoding="utf-8") as f:
             self.documents = [line.strip().split() for line in f]
         self.bm25 = BM25Okapi(self.documents)
