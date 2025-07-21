@@ -9,10 +9,10 @@ def validate_hadith(query: str):
     narrators , query = extract_narrators_chain_with_llm(query)
     query_vector = get_embedding(query)
 
-    semantic_ayahs = search_ayahs(query_vector=query_vector, limit=5)
+    semantic_ayahs = search_ayahs(query_vector=query_vector, limit=15)
     filtered_semantic_ayahs = filter_relevant_ayahs(ayahs=semantic_ayahs, hadith_text=query)
 
-    keyword_hits = bm25_engine.search(query, top_n=5)
+    keyword_hits = bm25_engine.search(query, top_n=15)
     bm25_results = map_bm25_hits_to_ayahs(keyword_hits)
     filtered_bm25_ayahs = filter_relevant_ayahs(ayahs=bm25_results, hadith_text=query)
 
